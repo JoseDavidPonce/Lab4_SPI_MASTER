@@ -1,5 +1,31 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
 [p mainexit ]
+"29 Main_MASTER.c
+[; ;Main_MASTER.c: 29: void Port_Init (void);
+[v _Port_Init `(v ~T0 @X0 0 ef ]
+"7 ./SPI_header.h
+[; ;./SPI_header.h: 7: void Init_SPI (uint8_t a, uint8_t just_one_slave);
+[v _Init_SPI `(v ~T0 @X0 0 ef2`uc`uc ]
+"8
+[; ;./SPI_header.h: 8: void Init_SPI_int(void);
+[v _Init_SPI_int `(v ~T0 @X0 0 ef ]
+"11 ./EUSARTheader.h
+[; ;./EUSARTheader.h: 11: void EUSART_Init(uint8_t a, uint8_t b);
+[v _EUSART_Init `(v ~T0 @X0 0 ef2`uc`uc ]
+"228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"3387
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"3449
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"1478
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
 "7 Main_MASTER.c
 [p x FOSC = INTRC_NOCLKOUT ]
 "8
@@ -258,14 +284,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"30 Main_MASTER.c
+[; ;Main_MASTER.c: 30: uint8_t contador;
+[v _contador `uc ~T0 @X0 1 e ]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"32
+[; ;Main_MASTER.c: 32: void __attribute__((picinterrupt(("")))) isr(void){
+[v _isr `(v ~T1 @X0 1 ef ]
+{
+[e :U _isr ]
+[f ]
+"34
+[; ;Main_MASTER.c: 34: }
+[e :UE 138 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"31 Main_MASTER.c
-[; ;Main_MASTER.c: 31: void main(void) {
+"36
+[; ;Main_MASTER.c: 36: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"33
-[; ;Main_MASTER.c: 33: }
-[e :UE 138 ]
+"37
+[; ;Main_MASTER.c: 37:     Port_Init();
+[e ( _Port_Init ..  ]
+"38
+[; ;Main_MASTER.c: 38:     Init_SPI(1,1);
+[e ( _Init_SPI (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"39
+[; ;Main_MASTER.c: 39:     Init_SPI_int();
+[e ( _Init_SPI_int ..  ]
+"40
+[; ;Main_MASTER.c: 40:     EUSART_Init(0,0);
+[e ( _EUSART_Init (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"42
+[; ;Main_MASTER.c: 42:     while(1){
+[e :U 141 ]
+{
+"43
+[; ;Main_MASTER.c: 43:         PORTB = contador;
+[e = _PORTB _contador ]
+"44
+[; ;Main_MASTER.c: 44:     }
+}
+[e :U 140 ]
+[e $U 141  ]
+[e :U 142 ]
+"45
+[; ;Main_MASTER.c: 45: }
+[e :UE 139 ]
+}
+"47
+[; ;Main_MASTER.c: 47: void Port_Init(void){
+[v _Port_Init `(v ~T0 @X0 1 ef ]
+{
+[e :U _Port_Init ]
+[f ]
+"48
+[; ;Main_MASTER.c: 48:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"49
+[; ;Main_MASTER.c: 49:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
+"50
+[; ;Main_MASTER.c: 50:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
+"51
+[; ;Main_MASTER.c: 51:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
+"52
+[; ;Main_MASTER.c: 52: }
+[e :UE 143 ]
 }

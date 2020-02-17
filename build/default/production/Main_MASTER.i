@@ -2686,7 +2686,26 @@ void Init_SPI_int(void);
 
 
 void Port_Init (void);
+uint8_t contador;
+
+void __attribute__((picinterrupt(("")))) isr(void){
+
+}
 
 void main(void) {
+    Port_Init();
+    Init_SPI(1,1);
+    Init_SPI_int();
+    EUSART_Init(0,0);
 
+    while(1){
+        PORTB = contador;
+    }
+}
+
+void Port_Init(void){
+    ANSEL = 0;
+    ANSELH = 0;
+    TRISB = 0;
+    PORTB = 0;
 }
