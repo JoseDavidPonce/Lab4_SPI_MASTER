@@ -2729,7 +2729,7 @@ void main(void) {
     EUSART_Init(0,0);
 
     while(1){
-        PORTB = contador;
+
     }
 }
 

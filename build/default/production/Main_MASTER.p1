@@ -34,10 +34,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./EUSARTheader.h
 [; ;./EUSARTheader.h: 11: void EUSART_Init(uint8_t a, uint8_t b);
 [v _EUSART_Init `(v ~T0 @X0 0 ef2`uc`uc ]
-"228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"3387
+"3387 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3449
@@ -46,6 +43,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1478
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"228
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "7 Main_MASTER.c
 [p x FOSC = INTRC_NOCLKOUT ]
 "8
@@ -467,9 +467,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Main_MASTER.c: 72:     while(1){
 [e :U 153 ]
 {
-"73
-[; ;Main_MASTER.c: 73:         PORTB = contador;
-[e = _PORTB _contador ]
 "74
 [; ;Main_MASTER.c: 74:     }
 }
