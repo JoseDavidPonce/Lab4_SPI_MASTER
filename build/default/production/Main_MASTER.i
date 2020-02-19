@@ -2686,11 +2686,41 @@ void Init_SPI_int(void);
 
 
 void Port_Init (void);
-uint8_t contador;
+uint8_t contador, pot1, pot2;
+uint8_t alternancia = 0;
+uint8_t nodatotx = 0;
 
 void __attribute__((picinterrupt(("")))) isr(void){
-
-}
+    if (PIR1bits.SSPIF == 1){
+        PIR1bits.SSPIF = 0;
+        if (alternancia == 0){
+            pot1 = SSPBUF;
+            SSPBUF = 0x01;
+            alternancia = 1;
+        }else{
+            pot2 = SSPBUF;
+            SSPBUF = 0x00;
+            alternancia = 0;
+        }
+    } else if (PIR1bits.RCIF == 1){
+        contador = RCREG;
+    } else if (PIR1bits.TXIF == 1){
+        switch (nodatotx) {
+            case 0:
+                TXREG = pot1;
+                nodatotx++;
+                break;
+            case 1:
+                TXREG = pot2;
+                nodatotx++;
+                break;
+            case 2:
+                TXREG = 0x42;
+                nodatotx = 0;
+                break;
+        }
+    }
+    }
 
 void main(void) {
     Port_Init();

@@ -1,6 +1,26 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
+"543 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 543:     struct {
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 542: typedef union {
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"843
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 843: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
+[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+"1140
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
+"1133
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
 [p mainexit ]
 "29 Main_MASTER.c
 [; ;Main_MASTER.c: 29: void Port_Init (void);
@@ -285,74 +305,200 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "30 Main_MASTER.c
-[; ;Main_MASTER.c: 30: uint8_t contador;
+[; ;Main_MASTER.c: 30: uint8_t contador, pot1, pot2;
 [v _contador `uc ~T0 @X0 1 e ]
-[v $root$_isr `(v ~T0 @X0 0 e ]
+[v _pot1 `uc ~T0 @X0 1 e ]
+[v _pot2 `uc ~T0 @X0 1 e ]
+"31
+[; ;Main_MASTER.c: 31: uint8_t alternancia = 0;
+[v _alternancia `uc ~T0 @X0 1 e ]
+[i _alternancia
+-> -> 0 `i `uc
+]
 "32
-[; ;Main_MASTER.c: 32: void __attribute__((picinterrupt(("")))) isr(void){
+[; ;Main_MASTER.c: 32: uint8_t nodatotx = 0;
+[v _nodatotx `uc ~T0 @X0 1 e ]
+[i _nodatotx
+-> -> 0 `i `uc
+]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"34
+[; ;Main_MASTER.c: 34: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"34
-[; ;Main_MASTER.c: 34: }
+"35
+[; ;Main_MASTER.c: 35:     if (PIR1bits.SSPIF == 1){
+[e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 139  ]
+{
+"36
+[; ;Main_MASTER.c: 36:         PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"37
+[; ;Main_MASTER.c: 37:         if (alternancia == 0){
+[e $ ! == -> _alternancia `i -> 0 `i 140  ]
+{
+"38
+[; ;Main_MASTER.c: 38:             pot1 = SSPBUF;
+[e = _pot1 _SSPBUF ]
+"39
+[; ;Main_MASTER.c: 39:             SSPBUF = 0x01;
+[e = _SSPBUF -> -> 1 `i `uc ]
+"40
+[; ;Main_MASTER.c: 40:             alternancia = 1;
+[e = _alternancia -> -> 1 `i `uc ]
+"41
+[; ;Main_MASTER.c: 41:         }else{
+}
+[e $U 141  ]
+[e :U 140 ]
+{
+"42
+[; ;Main_MASTER.c: 42:             pot2 = SSPBUF;
+[e = _pot2 _SSPBUF ]
+"43
+[; ;Main_MASTER.c: 43:             SSPBUF = 0x00;
+[e = _SSPBUF -> -> 0 `i `uc ]
+"44
+[; ;Main_MASTER.c: 44:             alternancia = 0;
+[e = _alternancia -> -> 0 `i `uc ]
+"45
+[; ;Main_MASTER.c: 45:         }
+}
+[e :U 141 ]
+"46
+[; ;Main_MASTER.c: 46:     } else if (PIR1bits.RCIF == 1){
+}
+[e $U 142  ]
+[e :U 139 ]
+[e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 143  ]
+{
+"47
+[; ;Main_MASTER.c: 47:         contador = RCREG;
+[e = _contador _RCREG ]
+"48
+[; ;Main_MASTER.c: 48:     } else if (PIR1bits.TXIF == 1){
+}
+[e $U 144  ]
+[e :U 143 ]
+[e $ ! == -> . . _PIR1bits 0 4 `i -> 1 `i 145  ]
+{
+"49
+[; ;Main_MASTER.c: 49:         switch (nodatotx) {
+[e $U 147  ]
+{
+"50
+[; ;Main_MASTER.c: 50:             case 0:
+[e :U 148 ]
+"51
+[; ;Main_MASTER.c: 51:                 TXREG = pot1;
+[e = _TXREG _pot1 ]
+"52
+[; ;Main_MASTER.c: 52:                 nodatotx++;
+[e ++ _nodatotx -> -> 1 `i `uc ]
+"53
+[; ;Main_MASTER.c: 53:                 break;
+[e $U 146  ]
+"54
+[; ;Main_MASTER.c: 54:             case 1:
+[e :U 149 ]
+"55
+[; ;Main_MASTER.c: 55:                 TXREG = pot2;
+[e = _TXREG _pot2 ]
+"56
+[; ;Main_MASTER.c: 56:                 nodatotx++;
+[e ++ _nodatotx -> -> 1 `i `uc ]
+"57
+[; ;Main_MASTER.c: 57:                 break;
+[e $U 146  ]
+"58
+[; ;Main_MASTER.c: 58:             case 2:
+[e :U 150 ]
+"59
+[; ;Main_MASTER.c: 59:                 TXREG = 0x42;
+[e = _TXREG -> -> 66 `i `uc ]
+"60
+[; ;Main_MASTER.c: 60:                 nodatotx = 0;
+[e = _nodatotx -> -> 0 `i `uc ]
+"61
+[; ;Main_MASTER.c: 61:                 break;
+[e $U 146  ]
+"62
+[; ;Main_MASTER.c: 62:         }
+}
+[e $U 146  ]
+[e :U 147 ]
+[e [\ -> _nodatotx `i , $ -> 0 `i 148
+ , $ -> 1 `i 149
+ , $ -> 2 `i 150
+ 146 ]
+[e :U 146 ]
+"63
+[; ;Main_MASTER.c: 63:     }
+}
+[e :U 145 ]
+[e :U 144 ]
+[e :U 142 ]
+"64
+[; ;Main_MASTER.c: 64:     }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"36
-[; ;Main_MASTER.c: 36: void main(void) {
+"66
+[; ;Main_MASTER.c: 66: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"37
-[; ;Main_MASTER.c: 37:     Port_Init();
+"67
+[; ;Main_MASTER.c: 67:     Port_Init();
 [e ( _Port_Init ..  ]
-"38
-[; ;Main_MASTER.c: 38:     Init_SPI(1,1);
+"68
+[; ;Main_MASTER.c: 68:     Init_SPI(1,1);
 [e ( _Init_SPI (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"39
-[; ;Main_MASTER.c: 39:     Init_SPI_int();
+"69
+[; ;Main_MASTER.c: 69:     Init_SPI_int();
 [e ( _Init_SPI_int ..  ]
-"40
-[; ;Main_MASTER.c: 40:     EUSART_Init(0,0);
+"70
+[; ;Main_MASTER.c: 70:     EUSART_Init(0,0);
 [e ( _EUSART_Init (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"42
-[; ;Main_MASTER.c: 42:     while(1){
-[e :U 141 ]
+"72
+[; ;Main_MASTER.c: 72:     while(1){
+[e :U 153 ]
 {
-"43
-[; ;Main_MASTER.c: 43:         PORTB = contador;
+"73
+[; ;Main_MASTER.c: 73:         PORTB = contador;
 [e = _PORTB _contador ]
-"44
-[; ;Main_MASTER.c: 44:     }
+"74
+[; ;Main_MASTER.c: 74:     }
 }
-[e :U 140 ]
-[e $U 141  ]
-[e :U 142 ]
-"45
-[; ;Main_MASTER.c: 45: }
-[e :UE 139 ]
+[e :U 152 ]
+[e $U 153  ]
+[e :U 154 ]
+"75
+[; ;Main_MASTER.c: 75: }
+[e :UE 151 ]
 }
-"47
-[; ;Main_MASTER.c: 47: void Port_Init(void){
+"77
+[; ;Main_MASTER.c: 77: void Port_Init(void){
 [v _Port_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _Port_Init ]
 [f ]
-"48
-[; ;Main_MASTER.c: 48:     ANSEL = 0;
+"78
+[; ;Main_MASTER.c: 78:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"49
-[; ;Main_MASTER.c: 49:     ANSELH = 0;
+"79
+[; ;Main_MASTER.c: 79:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"50
-[; ;Main_MASTER.c: 50:     TRISB = 0;
+"80
+[; ;Main_MASTER.c: 80:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"51
-[; ;Main_MASTER.c: 51:     PORTB = 0;
+"81
+[; ;Main_MASTER.c: 81:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"52
-[; ;Main_MASTER.c: 52: }
-[e :UE 143 ]
+"82
+[; ;Main_MASTER.c: 82: }
+[e :UE 155 ]
 }

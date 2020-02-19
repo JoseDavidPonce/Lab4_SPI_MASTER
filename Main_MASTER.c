@@ -29,6 +29,7 @@
 void Port_Init (void);
 uint8_t contador, pot1, pot2;
 uint8_t alternancia = 0;
+uint8_t nodatotx = 0;
 
 void __interrupt() isr(void){  
     if (PIR1bits.SSPIF == 1){
@@ -42,7 +43,6 @@ void __interrupt() isr(void){
             SSPBUF = 0x00;
             alternancia = 0;
         }
-<<<<<<< HEAD
     } else if (PIR1bits.RCIF == 1){
         contador = RCREG;
     } else if (PIR1bits.TXIF == 1){
