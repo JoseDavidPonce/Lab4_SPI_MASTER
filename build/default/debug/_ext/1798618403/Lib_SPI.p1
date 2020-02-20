@@ -1,7 +1,103 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"543 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+"1546 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1546:     struct {
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1545
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1545: typedef union {
+[u S56 `S57 1 ]
+[n S56 . . ]
+"1557
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
+[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
+"2183
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2183:     struct {
+[s S82 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S82 . BF UA R_nW S P D_nA CKE SMP ]
+"2193
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2193:     struct {
+[s S83 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S83 . . R . D ]
+"2199
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2199:     struct {
+[s S84 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S84 . . I2C_READ I2C_START I2C_STOP I2C_DATA ]
+"2206
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2206:     struct {
+[s S85 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S85 . . nW . nA ]
+"2212
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2212:     struct {
+[s S86 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S86 . . nWRITE . nADDRESS ]
+"2218
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2218:     struct {
+[s S87 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S87 . . R_W . D_A ]
+"2224
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2224:     struct {
+[s S88 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S88 . . READ_WRITE . DATA_ADDRESS ]
+"2182
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2182: typedef union {
+[u S81 `S82 1 `S83 1 `S84 1 `S85 1 `S86 1 `S87 1 `S88 1 ]
+[n S81 . . . . . . . . ]
+"2231
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2231: extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0x094)));
+[v _SSPSTATbits `VS81 ~T0 @X0 0 e@148 ]
+"856
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 856:     struct {
+[s S30 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S30 . SSPM CKP SSPEN SSPOV WCOL ]
+"863
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 863:     struct {
+[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"855
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 855: typedef union {
+[u S29 `S30 1 `S31 1 ]
+[n S29 . . . ]
+"870
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 870: extern volatile SSPCONbits_t SSPCONbits __attribute__((address(0x014)));
+[v _SSPCONbits `VS29 ~T0 @X0 0 e@20 ]
+"1422
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1422:     struct {
+[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S53 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"1421
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1421: typedef union {
+[u S52 `S53 1 ]
+[n S52 . . ]
+"1433
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1433: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
+[v _TRISAbits `VS52 ~T0 @X0 0 e@133 ]
+"465
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"1708
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1708:     struct {
+[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"1707
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1707: typedef union {
+[u S62 `S63 1 ]
+[n S62 . . ]
+"1718
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
+[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
+"543
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 543:     struct {
 [s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
@@ -12,64 +108,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "553
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
 [v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
-"843
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 843: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
-"1140
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
-[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
-"1133
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
-[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-[p mainexit ]
-"29 Main_MASTER.c
-[; ;Main_MASTER.c: 29: void Port_Init (void);
-[v _Port_Init `(v ~T0 @X0 0 ef ]
-"7 ./SPI_header.h
-[; ;./SPI_header.h: 7: void Init_SPI (uint8_t a, uint8_t just_one_slave);
-[v _Init_SPI `(v ~T0 @X0 0 ef2`uc`uc ]
-"8
-[; ;./SPI_header.h: 8: void Init_SPI_int(void);
-[v _Init_SPI_int `(v ~T0 @X0 0 ef ]
-"11 ./EUSARTheader.h
-[; ;./EUSARTheader.h: 11: void EUSART_Init(uint8_t a, uint8_t b);
-[v _EUSART_Init `(v ~T0 @X0 0 ef2`uc`uc ]
-"228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"3387
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
-[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
-"3449
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
-[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
-"1478
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"7 Main_MASTER.c
-[p x FOSC = INTRC_NOCLKOUT ]
-"8
-[p x WDTE = OFF ]
-"9
-[p x PWRTE = OFF ]
-"10
-[p x MCLRE = OFF ]
-"11
-[p x CP = OFF ]
-"12
-[p x CPD = OFF ]
-"13
-[p x BOREN = OFF ]
-"14
-[p x IESO = OFF ]
-"15
-[p x FCMEN = OFF ]
-"16
-[p x LVP = OFF ]
-"19
-[p x BOR4V = BOR40V ]
-"20
-[p x WRT = OFF ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -304,210 +342,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"30 Main_MASTER.c
-[; ;Main_MASTER.c: 30: uint8_t contador;
-[v _contador `uc ~T0 @X0 1 e ]
-"31
-[; ;Main_MASTER.c: 31: uint8_t pot1 = 0;
-[v _pot1 `uc ~T0 @X0 1 e ]
-[i _pot1
--> -> 0 `i `uc
-]
-"32
-[; ;Main_MASTER.c: 32: uint8_t pot2 = 1;
-[v _pot2 `uc ~T0 @X0 1 e ]
-[i _pot2
--> -> 1 `i `uc
-]
-"33
-[; ;Main_MASTER.c: 33: uint8_t alternancia = 0;
-[v _alternancia `uc ~T0 @X0 1 e ]
-[i _alternancia
--> -> 0 `i `uc
-]
-"34
-[; ;Main_MASTER.c: 34: uint8_t nodatotx = 0;
-[v _nodatotx `uc ~T0 @X0 1 e ]
-[i _nodatotx
--> -> 0 `i `uc
-]
-[v $root$_isr `(v ~T0 @X0 0 e ]
-"36
-[; ;Main_MASTER.c: 36: void __attribute__((picinterrupt(("")))) isr(void){
-[v _isr `(v ~T1 @X0 1 ef ]
+"15 ../Lab4_SPI/Lib_SPI.c
+[; ;../Lab4_SPI/Lib_SPI.c: 15: void Init_SPI (uint8_t a, uint8_t just_one_slave){
+[v _Init_SPI `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[e :U _isr ]
+[e :U _Init_SPI ]
+[v _a `uc ~T0 @X0 1 r1 ]
+[v _just_one_slave `uc ~T0 @X0 1 r2 ]
 [f ]
-"37
-[; ;Main_MASTER.c: 37:     if (PIR1bits.SSPIF == 1){
-[e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 139  ]
+"16
+[; ;../Lab4_SPI/Lib_SPI.c: 16:     TRISCbits.TRISC5 = 0;
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+"18
+[; ;../Lab4_SPI/Lib_SPI.c: 18:     if (a == 1){
+[e $ ! == -> _a `i -> 1 `i 139  ]
 {
+"19
+[; ;../Lab4_SPI/Lib_SPI.c: 19:         TRISCbits.TRISC3 = 0;
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+"20
+[; ;../Lab4_SPI/Lib_SPI.c: 20:         SSPSTATbits.SMP = 0;
+[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
+"21
+[; ;../Lab4_SPI/Lib_SPI.c: 21:         SSPSTATbits.CKE = 1;
+[e = . . _SSPSTATbits 0 6 -> -> 1 `i `uc ]
+"22
+[; ;../Lab4_SPI/Lib_SPI.c: 22:         SSPCONbits.SSPEN = 1;
+[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
+"23
+[; ;../Lab4_SPI/Lib_SPI.c: 23:         SSPCONbits.CKP = 0;
+[e = . . _SSPCONbits 0 1 -> -> 0 `i `uc ]
+"25
+[; ;../Lab4_SPI/Lib_SPI.c: 25:         SSPCONbits.SSPM0 = 0;
+[e = . . _SSPCONbits 1 0 -> -> 0 `i `uc ]
+"26
+[; ;../Lab4_SPI/Lib_SPI.c: 26:         SSPCONbits.SSPM1 = 0;
+[e = . . _SSPCONbits 1 1 -> -> 0 `i `uc ]
+"27
+[; ;../Lab4_SPI/Lib_SPI.c: 27:         SSPCONbits.SSPM2 = 0;
+[e = . . _SSPCONbits 1 2 -> -> 0 `i `uc ]
+"28
+[; ;../Lab4_SPI/Lib_SPI.c: 28:         SSPCONbits.SSPM3 = 0;
+[e = . . _SSPCONbits 1 3 -> -> 0 `i `uc ]
+"29
+[; ;../Lab4_SPI/Lib_SPI.c: 29:     }else if (a == 0){
+}
+[e $U 140  ]
+[e :U 139 ]
+[e $ ! == -> _a `i -> 0 `i 141  ]
+{
+"30
+[; ;../Lab4_SPI/Lib_SPI.c: 30:         TRISCbits.TRISC3 = 1;
+[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+"31
+[; ;../Lab4_SPI/Lib_SPI.c: 31:         SSPSTATbits.SMP = 0;
+[e = . . _SSPSTATbits 0 7 -> -> 0 `i `uc ]
+"32
+[; ;../Lab4_SPI/Lib_SPI.c: 32:         SSPSTATbits.CKE = 1;
+[e = . . _SSPSTATbits 0 6 -> -> 1 `i `uc ]
+"33
+[; ;../Lab4_SPI/Lib_SPI.c: 33:         SSPCONbits.SSPEN = 1;
+[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
+"34
+[; ;../Lab4_SPI/Lib_SPI.c: 34:         SSPCONbits.CKP = 0;
+[e = . . _SSPCONbits 0 1 -> -> 0 `i `uc ]
+"36
+[; ;../Lab4_SPI/Lib_SPI.c: 36:         SSPCONbits.SSPM1 = 0;
+[e = . . _SSPCONbits 1 1 -> -> 0 `i `uc ]
+"37
+[; ;../Lab4_SPI/Lib_SPI.c: 37:         SSPCONbits.SSPM2 = 1;
+[e = . . _SSPCONbits 1 2 -> -> 1 `i `uc ]
 "38
-[; ;Main_MASTER.c: 38:         PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+[; ;../Lab4_SPI/Lib_SPI.c: 38:         SSPCONbits.SSPM3 = 0;
+[e = . . _SSPCONbits 1 3 -> -> 0 `i `uc ]
 "39
-[; ;Main_MASTER.c: 39:         if (alternancia == 0){
-[e $ ! == -> _alternancia `i -> 0 `i 140  ]
+[; ;../Lab4_SPI/Lib_SPI.c: 39:         if (just_one_slave == 1){
+[e $ ! == -> _just_one_slave `i -> 1 `i 142  ]
 {
 "40
-[; ;Main_MASTER.c: 40:             pot1 = SSPBUF;
-[e = _pot1 _SSPBUF ]
+[; ;../Lab4_SPI/Lib_SPI.c: 40:             SSPCONbits.SSPM0 = 1;
+[e = . . _SSPCONbits 1 0 -> -> 1 `i `uc ]
 "41
-[; ;Main_MASTER.c: 41:             SSPBUF = 0x01;
-[e = _SSPBUF -> -> 1 `i `uc ]
-"42
-[; ;Main_MASTER.c: 42:             alternancia = 1;
-[e = _alternancia -> -> 1 `i `uc ]
-"43
-[; ;Main_MASTER.c: 43:         }else{
+[; ;../Lab4_SPI/Lib_SPI.c: 41:         }else if (just_one_slave == 0){
 }
-[e $U 141  ]
-[e :U 140 ]
+[e $U 143  ]
+[e :U 142 ]
+[e $ ! == -> _just_one_slave `i -> 0 `i 144  ]
 {
+"42
+[; ;../Lab4_SPI/Lib_SPI.c: 42:             TRISAbits.TRISA5 = 1;
+[e = . . _TRISAbits 0 5 -> -> 1 `i `uc ]
+"43
+[; ;../Lab4_SPI/Lib_SPI.c: 43:             SSPCONbits.SSPM0 = 0;
+[e = . . _SSPCONbits 1 0 -> -> 0 `i `uc ]
 "44
-[; ;Main_MASTER.c: 44:             pot2 = SSPBUF;
-[e = _pot2 _SSPBUF ]
-"45
-[; ;Main_MASTER.c: 45:             SSPBUF = 0x00;
-[e = _SSPBUF -> -> 0 `i `uc ]
+[; ;../Lab4_SPI/Lib_SPI.c: 44:         }
+}
+[e :U 144 ]
+[e :U 143 ]
 "46
-[; ;Main_MASTER.c: 46:             alternancia = 0;
-[e = _alternancia -> -> 0 `i `uc ]
-"47
-[; ;Main_MASTER.c: 47:         }
+[; ;../Lab4_SPI/Lib_SPI.c: 46:     }
 }
 [e :U 141 ]
-"48
-[; ;Main_MASTER.c: 48:     } if (PIR1bits.RCIF == 1){
-}
-[e :U 139 ]
-[e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 142  ]
-{
-"49
-[; ;Main_MASTER.c: 49:         contador = RCREG;
-[e = _contador _RCREG ]
-"50
-[; ;Main_MASTER.c: 50:     } if (PIR1bits.TXIF == 1){
-}
-[e :U 142 ]
-[e $ ! == -> . . _PIR1bits 0 4 `i -> 1 `i 143  ]
-{
-"51
-[; ;Main_MASTER.c: 51:         switch (nodatotx) {
-[e $U 145  ]
-{
-"52
-[; ;Main_MASTER.c: 52:             case 0:
-[e :U 146 ]
-"53
-[; ;Main_MASTER.c: 53:                 TXREG = pot1;
-[e = _TXREG _pot1 ]
-"54
-[; ;Main_MASTER.c: 54:                 nodatotx++;
-[e ++ _nodatotx -> -> 1 `i `uc ]
-"55
-[; ;Main_MASTER.c: 55:                 break;
-[e $U 144  ]
-"56
-[; ;Main_MASTER.c: 56:             case 1:
-[e :U 147 ]
-"57
-[; ;Main_MASTER.c: 57:                 TXREG = pot2;
-[e = _TXREG _pot2 ]
-"58
-[; ;Main_MASTER.c: 58:                 nodatotx++;
-[e ++ _nodatotx -> -> 1 `i `uc ]
-"59
-[; ;Main_MASTER.c: 59:                 break;
-[e $U 144  ]
-"60
-[; ;Main_MASTER.c: 60:             case 2:
-[e :U 148 ]
-"61
-[; ;Main_MASTER.c: 61:                 TXREG = 0x42;
-[e = _TXREG -> -> 66 `i `uc ]
-"62
-[; ;Main_MASTER.c: 62:                 nodatotx = 0;
-[e = _nodatotx -> -> 0 `i `uc ]
-"63
-[; ;Main_MASTER.c: 63:                 break;
-[e $U 144  ]
-"64
-[; ;Main_MASTER.c: 64:         }
-}
-[e $U 144  ]
-[e :U 145 ]
-[e [\ -> _nodatotx `i , $ -> 0 `i 146
- , $ -> 1 `i 147
- , $ -> 2 `i 148
- 144 ]
-[e :U 144 ]
-"65
-[; ;Main_MASTER.c: 65:     }
-}
-[e :U 143 ]
-"66
-[; ;Main_MASTER.c: 66:     }
+[e :U 140 ]
+"47
+[; ;../Lab4_SPI/Lib_SPI.c: 47: }
 [e :UE 138 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"68
-[; ;Main_MASTER.c: 68: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"49
+[; ;../Lab4_SPI/Lib_SPI.c: 49: void Init_SPI_int(void){
+[v _Init_SPI_int `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _Init_SPI_int ]
 [f ]
-"69
-[; ;Main_MASTER.c: 69:     Port_Init();
-[e ( _Port_Init ..  ]
-"70
-[; ;Main_MASTER.c: 70:     Init_SPI(1,1);
-[e ( _Init_SPI (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"71
-[; ;Main_MASTER.c: 71:     Init_SPI_int();
-[e ( _Init_SPI_int ..  ]
-"72
-[; ;Main_MASTER.c: 72:     EUSART_Init(1,1);
-[e ( _EUSART_Init (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"73
-[; ;Main_MASTER.c: 73:     SSPBUF = 0;
-[e = _SSPBUF -> -> 0 `i `uc ]
-"74
-[; ;Main_MASTER.c: 74:     while(1){
-[e :U 151 ]
-{
-"75
-[; ;Main_MASTER.c: 75:         PORTB = contador;
-[e = _PORTB _contador ]
-"76
-[; ;Main_MASTER.c: 76:     }
-}
-[e :U 150 ]
-[e $U 151  ]
-[e :U 152 ]
-"77
-[; ;Main_MASTER.c: 77: }
-[e :UE 149 ]
-}
-"79
-[; ;Main_MASTER.c: 79: void Port_Init(void){
-[v _Port_Init `(v ~T0 @X0 1 ef ]
-{
-[e :U _Port_Init ]
-[f ]
-"80
-[; ;Main_MASTER.c: 80:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"81
-[; ;Main_MASTER.c: 81:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
-"82
-[; ;Main_MASTER.c: 82:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
-"83
-[; ;Main_MASTER.c: 83:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
-"84
-[; ;Main_MASTER.c: 84: }
-[e :UE 153 ]
+"50
+[; ;../Lab4_SPI/Lib_SPI.c: 50:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"51
+[; ;../Lab4_SPI/Lib_SPI.c: 51:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"52
+[; ;../Lab4_SPI/Lib_SPI.c: 52:     PIE1bits.SSPIE = 1;
+[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
+"53
+[; ;../Lab4_SPI/Lib_SPI.c: 53:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"55
+[; ;../Lab4_SPI/Lib_SPI.c: 55: }
+[e :UE 145 ]
 }

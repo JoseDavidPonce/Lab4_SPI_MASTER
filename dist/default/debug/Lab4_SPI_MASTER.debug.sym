@@ -171,8 +171,8 @@ config 400E 4011 CONFIG 400E 0
 cstackCOMMON 70 79 COMMON 70 1
 cstackBANK0 20 21 BANK0 20 1
 %locals
-dist/default/production\Lab4_SPI_MASTER.production.o
-C:\Users\megaj\AppData\Local\Temp\scl4.s
+dist/default/debug\Lab4_SPI_MASTER.debug.o
+C:\Users\megaj\AppData\Local\Temp\s1o0.s
 798 11 0 CODE 0
 801 11 0 CODE 0
 830 11 0 CODE 0

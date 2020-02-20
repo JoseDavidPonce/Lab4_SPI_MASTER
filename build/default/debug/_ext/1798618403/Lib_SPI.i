@@ -1,4 +1,4 @@
-# 1 "Main_MASTER.c"
+# 1 "../Lab4_SPI/Lib_SPI.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,30 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Main_MASTER.c" 2
-
-
-
-
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
+# 1 "../Lab4_SPI/Lib_SPI.c" 2
+# 11 "../Lab4_SPI/Lib_SPI.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2514,7 +2492,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 23 "Main_MASTER.c" 2
+# 11 "../Lab4_SPI/Lib_SPI.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
@@ -2649,95 +2627,60 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 24 "Main_MASTER.c" 2
+# 12 "../Lab4_SPI/Lib_SPI.c" 2
 
-# 1 "./EUSARTheader.h" 1
-
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
-# 6 "./EUSARTheader.h" 2
-
-
-
-
-
-void EUSART_Init(uint8_t a, uint8_t b);
-uint8_t CHECK_FOR_ERRORS (void);
-void SEND_STRING(char *a);
-void SEND_CHAR(char a);
-# 25 "Main_MASTER.c" 2
-
-# 1 "./SPI_header.h" 1
+# 1 "../Lab4_SPI/SPI_header.h" 1
 
 
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
-# 5 "./SPI_header.h" 2
+# 5 "../Lab4_SPI/SPI_header.h" 2
 
 
 void Init_SPI (uint8_t a, uint8_t just_one_slave);
 void Init_SPI_int(void);
-# 26 "Main_MASTER.c" 2
+# 13 "../Lab4_SPI/Lib_SPI.c" 2
 
 
+void Init_SPI (uint8_t a, uint8_t just_one_slave){
+    TRISCbits.TRISC5 = 0;
 
-void Port_Init (void);
-uint8_t contador;
-uint8_t pot1 = 0;
-uint8_t pot2 = 1;
-uint8_t alternancia = 0;
-uint8_t nodatotx = 0;
+    if (a == 1){
+        TRISCbits.TRISC3 = 0;
+        SSPSTATbits.SMP = 0;
+        SSPSTATbits.CKE = 1;
+        SSPCONbits.SSPEN = 1;
+        SSPCONbits.CKP = 0;
 
-void __attribute__((picinterrupt(("")))) isr(void){
-    if (PIR1bits.SSPIF == 1){
-        PIR1bits.SSPIF = 0;
-        if (alternancia == 0){
-            pot1 = SSPBUF;
-            SSPBUF = 0x01;
-            alternancia = 1;
-        }else{
-            pot2 = SSPBUF;
-            SSPBUF = 0x00;
-            alternancia = 0;
+        SSPCONbits.SSPM0 = 0;
+        SSPCONbits.SSPM1 = 0;
+        SSPCONbits.SSPM2 = 0;
+        SSPCONbits.SSPM3 = 0;
+    }else if (a == 0){
+        TRISCbits.TRISC3 = 1;
+        SSPSTATbits.SMP = 0;
+        SSPSTATbits.CKE = 1;
+        SSPCONbits.SSPEN = 1;
+        SSPCONbits.CKP = 0;
+
+        SSPCONbits.SSPM1 = 0;
+        SSPCONbits.SSPM2 = 1;
+        SSPCONbits.SSPM3 = 0;
+        if (just_one_slave == 1){
+            SSPCONbits.SSPM0 = 1;
+        }else if (just_one_slave == 0){
+            TRISAbits.TRISA5 = 1;
+            SSPCONbits.SSPM0 = 0;
         }
-    } if (PIR1bits.RCIF == 1){
-        contador = RCREG;
-    } if (PIR1bits.TXIF == 1){
-        switch (nodatotx) {
-            case 0:
-                TXREG = pot1;
-                nodatotx++;
-                break;
-            case 1:
-                TXREG = pot2;
-                nodatotx++;
-                break;
-            case 2:
-                TXREG = 0x42;
-                nodatotx = 0;
-                break;
-        }
-    }
-    }
 
-void main(void) {
-    Port_Init();
-    Init_SPI(1,1);
-    Init_SPI_int();
-    EUSART_Init(1,1);
-    SSPBUF = 0;
-    while(1){
-        PORTB = contador;
     }
 }
 
-void Port_Init(void){
-    ANSEL = 0;
-    ANSELH = 0;
-    TRISB = 0;
-    PORTB = 0;
+void Init_SPI_int(void){
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIE1bits.SSPIE = 1;
+    PIR1bits.SSPIF = 0;
+
 }
