@@ -2686,9 +2686,9 @@ void Init_SPI_int(void);
 
 
 void Port_Init (void);
-uint8_t contador;
+uint8_t contador = 0;
 uint8_t pot1 = 0;
-uint8_t pot2 = 1;
+uint8_t pot2 = 0;
 uint8_t alternancia = 0;
 uint8_t nodatotx = 0;
 
@@ -2707,6 +2707,12 @@ void __attribute__((picinterrupt(("")))) isr(void){
     } if (PIR1bits.RCIF == 1){
         contador = RCREG;
     } if (PIR1bits.TXIF == 1){
+        if (pot1 == 0x23){
+            pot1 = 0x22;
+        }if (pot2 == 0x23){
+            pot2 = 0x22;
+        }
+
         switch (nodatotx) {
             case 0:
                 TXREG = pot1;
@@ -2717,7 +2723,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
                 nodatotx++;
                 break;
             case 2:
-                TXREG = 0x42;
+                TXREG = 0x23;
                 nodatotx = 0;
                 break;
         }
@@ -2729,7 +2735,7 @@ void main(void) {
     Init_SPI(1,1);
     Init_SPI_int();
     EUSART_Init(1,1);
-    SSPBUF = 0;
+    SSPBUF = 1;
     while(1){
         PORTB = contador;
     }

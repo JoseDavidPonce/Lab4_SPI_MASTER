@@ -2650,11 +2650,12 @@ void SEND_CHAR(char a);
 
 void EUSART_Init (uint8_t a, uint8_t b){
 
+    TRISCbits.TRISC6 = 0;
+    TRISCbits.TRISC7 = 1;
     BAUDCTLbits.BRG16 = 0;
     TXSTAbits.BRGH = 1;
     TXSTAbits.SYNC = 0;
     RCSTAbits.SPEN = 1;
-    TRISCbits.TRISC7 = 1;
     SPBRG = 25;
     if (a==1){
         PIE1bits.RCIE = 1;
@@ -2667,7 +2668,6 @@ void EUSART_Init (uint8_t a, uint8_t b){
 
 
     TXSTAbits.TXEN = 1;
-    TRISCbits.TRISC6 = 0;
     if(b==1){
         PIE1bits.TXIE = 1;
         PIR1bits.TXIF = 0;

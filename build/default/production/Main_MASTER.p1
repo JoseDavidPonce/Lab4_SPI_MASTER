@@ -34,7 +34,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./EUSARTheader.h
 [; ;./EUSARTheader.h: 11: void EUSART_Init(uint8_t a, uint8_t b);
 [v _EUSART_Init `(v ~T0 @X0 0 ef2`uc`uc ]
-"228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+"234 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 234:     struct {
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"233
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 233: typedef union {
+[u S7 `S8 1 ]
+[n S7 . . ]
+"245
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 245: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
+"228
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "3387
@@ -305,8 +316,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "30 Main_MASTER.c
-[; ;Main_MASTER.c: 30: uint8_t contador;
+[; ;Main_MASTER.c: 30: uint8_t contador = 0;
 [v _contador `uc ~T0 @X0 1 e ]
+[i _contador
+-> -> 0 `i `uc
+]
 "31
 [; ;Main_MASTER.c: 31: uint8_t pot1 = 0;
 [v _pot1 `uc ~T0 @X0 1 e ]
@@ -314,10 +328,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "32
-[; ;Main_MASTER.c: 32: uint8_t pot2 = 1;
+[; ;Main_MASTER.c: 32: uint8_t pot2 = 0;
 [v _pot2 `uc ~T0 @X0 1 e ]
 [i _pot2
--> -> 1 `i `uc
+-> -> 0 `i `uc
 ]
 "33
 [; ;Main_MASTER.c: 33: uint8_t alternancia = 0;
@@ -393,121 +407,155 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> . . _PIR1bits 0 4 `i -> 1 `i 143  ]
 {
 "51
-[; ;Main_MASTER.c: 51:         switch (nodatotx) {
-[e $U 145  ]
+[; ;Main_MASTER.c: 51:         if (pot1 == 0x23){
+[e $ ! == -> _pot1 `i -> 35 `i 144  ]
 {
 "52
-[; ;Main_MASTER.c: 52:             case 0:
-[e :U 146 ]
+[; ;Main_MASTER.c: 52:             pot1 = 0x22;
+[e = _pot1 -> -> 34 `i `uc ]
 "53
-[; ;Main_MASTER.c: 53:                 TXREG = pot1;
-[e = _TXREG _pot1 ]
-"54
-[; ;Main_MASTER.c: 54:                 nodatotx++;
-[e ++ _nodatotx -> -> 1 `i `uc ]
-"55
-[; ;Main_MASTER.c: 55:                 break;
-[e $U 144  ]
-"56
-[; ;Main_MASTER.c: 56:             case 1:
-[e :U 147 ]
-"57
-[; ;Main_MASTER.c: 57:                 TXREG = pot2;
-[e = _TXREG _pot2 ]
-"58
-[; ;Main_MASTER.c: 58:                 nodatotx++;
-[e ++ _nodatotx -> -> 1 `i `uc ]
-"59
-[; ;Main_MASTER.c: 59:                 break;
-[e $U 144  ]
-"60
-[; ;Main_MASTER.c: 60:             case 2:
-[e :U 148 ]
-"61
-[; ;Main_MASTER.c: 61:                 TXREG = 0x42;
-[e = _TXREG -> -> 66 `i `uc ]
-"62
-[; ;Main_MASTER.c: 62:                 nodatotx = 0;
-[e = _nodatotx -> -> 0 `i `uc ]
-"63
-[; ;Main_MASTER.c: 63:                 break;
-[e $U 144  ]
-"64
-[; ;Main_MASTER.c: 64:         }
+[; ;Main_MASTER.c: 53:         }if (pot2 == 0x23){
 }
-[e $U 144  ]
-[e :U 145 ]
-[e [\ -> _nodatotx `i , $ -> 0 `i 146
- , $ -> 1 `i 147
- , $ -> 2 `i 148
- 144 ]
 [e :U 144 ]
+[e $ ! == -> _pot2 `i -> 35 `i 145  ]
+{
+"54
+[; ;Main_MASTER.c: 54:             pot2 = 0x22;
+[e = _pot2 -> -> 34 `i `uc ]
+"55
+[; ;Main_MASTER.c: 55:         }
+}
+[e :U 145 ]
+"57
+[; ;Main_MASTER.c: 57:         switch (nodatotx) {
+[e $U 147  ]
+{
+"58
+[; ;Main_MASTER.c: 58:             case 0:
+[e :U 148 ]
+"59
+[; ;Main_MASTER.c: 59:                 TXREG = pot1;
+[e = _TXREG _pot1 ]
+"60
+[; ;Main_MASTER.c: 60:                 nodatotx++;
+[e ++ _nodatotx -> -> 1 `i `uc ]
+"61
+[; ;Main_MASTER.c: 61:                 break;
+[e $U 146  ]
+"62
+[; ;Main_MASTER.c: 62:             case 1:
+[e :U 149 ]
+"63
+[; ;Main_MASTER.c: 63:                 TXREG = pot2;
+[e = _TXREG _pot2 ]
+"64
+[; ;Main_MASTER.c: 64:                 nodatotx++;
+[e ++ _nodatotx -> -> 1 `i `uc ]
 "65
-[; ;Main_MASTER.c: 65:     }
+[; ;Main_MASTER.c: 65:                 break;
+[e $U 146  ]
+"66
+[; ;Main_MASTER.c: 66:             case 2:
+[e :U 150 ]
+"67
+[; ;Main_MASTER.c: 67:                 TXREG = 0x23;
+[e = _TXREG -> -> 35 `i `uc ]
+"68
+[; ;Main_MASTER.c: 68:                 nodatotx = 0;
+[e = _nodatotx -> -> 0 `i `uc ]
+"69
+[; ;Main_MASTER.c: 69:                 break;
+[e $U 146  ]
+"70
+[; ;Main_MASTER.c: 70:         }
+}
+[e $U 146  ]
+[e :U 147 ]
+[e [\ -> _nodatotx `i , $ -> 0 `i 148
+ , $ -> 1 `i 149
+ , $ -> 2 `i 150
+ 146 ]
+[e :U 146 ]
+"71
+[; ;Main_MASTER.c: 71:     }
 }
 [e :U 143 ]
-"66
-[; ;Main_MASTER.c: 66:     }
+"72
+[; ;Main_MASTER.c: 72:     }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"68
-[; ;Main_MASTER.c: 68: void main(void) {
+"74
+[; ;Main_MASTER.c: 74: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"69
-[; ;Main_MASTER.c: 69:     Port_Init();
-[e ( _Port_Init ..  ]
-"70
-[; ;Main_MASTER.c: 70:     Init_SPI(1,1);
-[e ( _Init_SPI (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"71
-[; ;Main_MASTER.c: 71:     Init_SPI_int();
-[e ( _Init_SPI_int ..  ]
-"72
-[; ;Main_MASTER.c: 72:     EUSART_Init(1,1);
-[e ( _EUSART_Init (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"73
-[; ;Main_MASTER.c: 73:     SSPBUF = 0;
-[e = _SSPBUF -> -> 0 `i `uc ]
-"74
-[; ;Main_MASTER.c: 74:     while(1){
-[e :U 151 ]
-{
 "75
-[; ;Main_MASTER.c: 75:         PORTB = contador;
-[e = _PORTB _contador ]
+[; ;Main_MASTER.c: 75:     Port_Init();
+[e ( _Port_Init ..  ]
 "76
-[; ;Main_MASTER.c: 76:     }
-}
-[e :U 150 ]
-[e $U 151  ]
-[e :U 152 ]
+[; ;Main_MASTER.c: 76:     Init_SPI(1,1);
+[e ( _Init_SPI (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "77
-[; ;Main_MASTER.c: 77: }
-[e :UE 149 ]
-}
+[; ;Main_MASTER.c: 77:     Init_SPI_int();
+[e ( _Init_SPI_int ..  ]
+"78
+[; ;Main_MASTER.c: 78:     EUSART_Init(0,1);
+[e ( _EUSART_Init (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "79
-[; ;Main_MASTER.c: 79: void Port_Init(void){
+[; ;Main_MASTER.c: 79:     SSPBUF = 1;
+[e = _SSPBUF -> -> 1 `i `uc ]
+"80
+[; ;Main_MASTER.c: 80:     while(1){
+[e :U 153 ]
+{
+"81
+[; ;Main_MASTER.c: 81:         if (PIR1bits.RCIF == 1){
+[e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 155  ]
+{
+"82
+[; ;Main_MASTER.c: 82:             PORTBbits.RB6 = 1;
+[e = . . _PORTBbits 0 6 -> -> 1 `i `uc ]
+"83
+[; ;Main_MASTER.c: 83:             contador = RCREG;
+[e = _contador _RCREG ]
+"84
+[; ;Main_MASTER.c: 84:             PORTB = contador;
+[e = _PORTB _contador ]
+"85
+[; ;Main_MASTER.c: 85:         }
+}
+[e :U 155 ]
+"86
+[; ;Main_MASTER.c: 86:     }
+}
+[e :U 152 ]
+[e $U 153  ]
+[e :U 154 ]
+"87
+[; ;Main_MASTER.c: 87: }
+[e :UE 151 ]
+}
+"89
+[; ;Main_MASTER.c: 89: void Port_Init(void){
 [v _Port_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _Port_Init ]
 [f ]
-"80
-[; ;Main_MASTER.c: 80:     ANSEL = 0;
+"90
+[; ;Main_MASTER.c: 90:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"81
-[; ;Main_MASTER.c: 81:     ANSELH = 0;
+"91
+[; ;Main_MASTER.c: 91:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"82
-[; ;Main_MASTER.c: 82:     TRISB = 0;
+"92
+[; ;Main_MASTER.c: 92:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"83
-[; ;Main_MASTER.c: 83:     PORTB = 0;
+"93
+[; ;Main_MASTER.c: 93:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"84
-[; ;Main_MASTER.c: 84: }
-[e :UE 153 ]
+"94
+[; ;Main_MASTER.c: 94: }
+[e :UE 156 ]
 }

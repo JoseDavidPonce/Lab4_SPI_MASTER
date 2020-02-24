@@ -27,7 +27,7 @@
 
 #define _XTAL_FREQ 4000000  //Configura una frecuencia para los delays
 void Port_Init (void);
-uint8_t contador;
+uint8_t contador  = 0;
 uint8_t pot1 = 0; 
 uint8_t pot2 = 0;
 uint8_t alternancia = 0;
@@ -48,6 +48,12 @@ void __interrupt() isr(void){
     } if (PIR1bits.RCIF == 1){
         contador = RCREG;
     } if (PIR1bits.TXIF == 1){
+        if (pot1 == 0x23){
+            pot1 = 0x22;
+        }if (pot2 == 0x23){
+            pot2 = 0x22;
+        }
+        
         switch (nodatotx) {
             case 0:
                 TXREG = pot1;
@@ -58,7 +64,7 @@ void __interrupt() isr(void){
                 nodatotx++;
                 break;
             case 2:
-                TXREG = 0x42;
+                TXREG = 0x23;
                 nodatotx = 0;
                 break;
         }
@@ -69,10 +75,14 @@ void main(void) {
     Port_Init();
     Init_SPI(1,1);
     Init_SPI_int();
-    EUSART_Init(1,1); 
-    SSPBUF = 0;
+    EUSART_Init(0,1); 
+    SSPBUF = 1;
     while(1){
-        PORTB = contador;
+        if (PIR1bits.RCIF == 1){
+            PORTBbits.RB6 = 1;
+            contador = RCREG;
+            PORTB = contador;
+        }
     }
 }
 

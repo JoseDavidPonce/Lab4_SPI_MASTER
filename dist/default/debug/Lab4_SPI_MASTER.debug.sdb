@@ -21,9 +21,9 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "36 C:\Users\megaj\Desktop\UVG\5to Semestre\Digital 2\Repositorios\Lab4_SPI_MASTER\Main_MASTER.c
 [v _isr isr `II(v  1 e 1 0 ]
-"68
+"74
 [v _main main `(v  1 e 1 0 ]
-"79
+"85
 [v _Port_Init Port_Init `(v  1 e 1 0 ]
 "228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -224,15 +224,15 @@
 [v _alternancia alternancia `uc  1 e 1 0 ]
 "34
 [v _nodatotx nodatotx `uc  1 e 1 0 ]
-"68
+"74
 [v _main main `(v  1 e 1 0 ]
 {
-"77
+"83
 } 0
-"79
+"85
 [v _Port_Init Port_Init `(v  1 e 1 0 ]
 {
-"84
+"90
 } 0
 "49 C:\Users\megaj\Desktop\UVG\5to Semestre\Digital 2\Repositorios/Lab4_SPI/Lib_SPI.c
 [v _Init_SPI_int Init_SPI_int `(v  1 e 1 0 ]
@@ -261,5 +261,5 @@
 "36 C:\Users\megaj\Desktop\UVG\5to Semestre\Digital 2\Repositorios\Lab4_SPI_MASTER\Main_MASTER.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"66
+"72
 } 0
